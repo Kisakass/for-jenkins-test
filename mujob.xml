@@ -1,0 +1,71 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This is my first ever jenkins job</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>7</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>USER_NAME</name>
+          <description>Enter your name</description>
+          <defaultValue>Anonymous</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>FAVORITE_COLOR</name>
+          <description>Choose your favorite color</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>red</string>
+              <string>black</string>
+              <string>blue</string>
+              <string>green</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>USER_PASS</name>
+          <description>Enter your password</description>
+          <defaultValue>{AQAAABAAAAAQF64GqNRPCWbJLUIFv1AJniY4QS/Q2uHgWQvR7yydXdk=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>DOWNLOAD_FILE</name>
+          <description>Enter file</description>
+        </hudson.model.FileParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>ubuntu-ansible</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <authToken>tasfdasdukhasnc812y3781263786123</authToken>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;your name is $USER_NAME&quot;
+echo &quot;your favorite color is $FAVORITE_COLOR&quot;
+echo &quot;your pass $USER_PASS&quot;
+ls </command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.chucknorris.CordellWalkerRecorder plugin="chucknorris@1.4">
+      <factGenerator/>
+    </hudson.plugins.chucknorris.CordellWalkerRecorder>
+  </publishers>
+  <buildWrappers/>
+</project>
