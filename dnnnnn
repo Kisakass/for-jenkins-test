@@ -1,0 +1,87 @@
+[33mcommit 33dc63df5d86780699e81a4a34d5f1a3450f4ce5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Kisakass <kisaka.soop@gmail.com>
+Date:   Thu Feb 9 13:20:35 2023 +0000
+
+    first commit
+
+[1mdiff --git a/jenkins-cli.jar b/jenkins-cli.jar[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d3eb41e[m
+Binary files /dev/null and b/jenkins-cli.jar differ
+[1mdiff --git a/mujob.xml b/mujob.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2ed50c9[m
+[1m--- /dev/null[m
+[1m+++ b/mujob.xml[m
+[36m@@ -0,0 +1,71 @@[m
+[32m+[m[32m<?xml version='1.1' encoding='UTF-8'?>[m
+[32m+[m[32m<project>[m
+[32m+[m[32m  <actions/>[m
+[32m+[m[32m  <description>This is my first ever jenkins job</description>[m
+[32m+[m[32m  <keepDependencies>false</keepDependencies>[m
+[32m+[m[32m  <properties>[m
+[32m+[m[32m    <jenkins.model.BuildDiscarderProperty>[m
+[32m+[m[32m      <strategy class="hudson.tasks.LogRotator">[m
+[32m+[m[32m        <daysToKeep>-1</daysToKeep>[m
+[32m+[m[32m        <numToKeep>7</numToKeep>[m
+[32m+[m[32m        <artifactDaysToKeep>-1</artifactDaysToKeep>[m
+[32m+[m[32m        <artifactNumToKeep>-1</artifactNumToKeep>[m
+[32m+[m[32m      </strategy>[m
+[32m+[m[32m    </jenkins.model.BuildDiscarderProperty>[m
+[32m+[m[32m    <hudson.model.ParametersDefinitionProperty>[m
+[32m+[m[32m      <parameterDefinitions>[m
+[32m+[m[32m        <hudson.model.StringParameterDefinition>[m
+[32m+[m[32m          <name>USER_NAME</name>[m
+[32m+[m[32m          <description>Enter your name</description>[m
+[32m+[m[32m          <defaultValue>Anonymous</defaultValue>[m
+[32m+[m[32m          <trim>false</trim>[m
+[32m+[m[32m        </hudson.model.StringParameterDefinition>[m
+[32m+[m[32m        <hudson.model.ChoiceParameterDefinition>[m
+[32m+[m[32m          <name>FAVORITE_COLOR</name>[m
+[32m+[m[32m          <description>Choose your favorite color</description>[m
+[32m+[m[32m          <choices class="java.util.Arrays$ArrayList">[m
+[32m+[m[32m            <a class="string-array">[m
+[32m+[m[32m              <string>red</string>[m
+[32m+[m[32m              <string>black</string>[m
+[32m+[m[32m              <string>blue</string>[m
+[32m+[m[32m              <string>green</string>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </choices>[m
+[32m+[m[32m        </hudson.model.ChoiceParameterDefinition>[m
+[32m+[m[32m        <hudson.model.PasswordParameterDefinition>[m
+[32m+[m[32m          <name>USER_PASS</name>[m
+[32m+[m[32m          <description>Enter your password</description>[m
+[32m+[m[32m          <defaultValue>{AQAAABAAAAAQF64GqNRPCWbJLUIFv1AJniY4QS/Q2uHgWQvR7yydXdk=}</defaultValue>[m
+[32m+[m[32m        </hudson.model.PasswordParameterDefinition>[m
+[32m+[m[32m        <hudson.model.FileParameterDefinition>[m
+[32m+[m[32m          <name>DOWNLOAD_FILE</name>[m
+[32m+[m[32m          <description>Enter file</description>[m
+[32m+[m[32m        </hudson.model.FileParameterDefinition>[m
+[32m+[m[32m      </parameterDefinitions>[m
+[32m+[m[32m    </hudson.model.ParametersDefinitionProperty>[m
+[32m+[m[32m  </properties>[m
+[32m+[m[32m  <scm class="hudson.scm.NullSCM"/>[m
+[32m+[m[32m  <assignedNode>ubuntu-ansible</assignedNode>[m
+[32m+[m[32m  <canRoam>false</canRoam>[m
+[32m+[m[32m  <disabled>false</disabled>[m
+[32m+[m[32m  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>[m
+[32m+[m[32m  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>[m
+[32m+[m[32m  <authToken>tasfdasdukhasnc812y3781263786123</authToken>[m
+[32m+[m[32m  <triggers/>[m
+[32m+[m[32m  <concurrentBuild>true</concurrentBuild>[m
+[32m+[m[32m  <builders>[m
+[32m+[m[32m    <hudson.tasks.Shell>[m
+[32m+[m[32m      <command>echo &quot;your name is $USER_NAME&quot;[m
+[32m+[m[32mecho &quot;your favorite color is $FAVORITE_COLOR&quot;[m
+[32m+[m[32mecho &quot;your pass $USER_PASS&quot;[m
+[32m+[m[32mls </command>[m
+[32m+[m[32m      <configuredLocalRules/>[m
+[32m+[m[32m    </hudson.tasks.Shell>[m
+[32m+[m[32m  </builders>[m
+[32m+[m[32m  <publishers>[m
+[32m+[m[32m    <hudson.plugins.chucknorris.CordellWalkerRecorder plugin="chucknorris@1.4">[m
+[32m+[m[32m      <factGenerator/>[m
+[32m+[m[32m    </hudson.plugins.chucknorris.CordellWalkerRecorder>[m
+[32m+[m[32m  </publishers>[m
+[32m+[m[32m  <buildWrappers/>[m
+[32m+[m[32m</project>[m
